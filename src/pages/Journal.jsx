@@ -11,7 +11,7 @@ export default function Journal() {
 
       <br />
 
-      <button>Save Entry</button>
+      <button>Analyze Entry</button>
     </div>
   );
 }

@@ -8,3 +8,9 @@ export async function analyzeEntry(text) {
         consistency: []
     };
 }
+
+// Sample response format from the API
+[
+    {type: "grammar", message: "too > to"},
+    {type: "clarity", message: "Sentence could be clearer"}
+]
