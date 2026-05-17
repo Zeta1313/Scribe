@@ -157,6 +157,27 @@ button:hover {
     color: #b8c2d6;
 }
 
+.history-page {
+    margin-top: 30px;
+}
+
+.history-card {
+    background: #151515;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+
+.history-card h3 {
+    margin-top: 0;
+    color: #b8c2d6;
+}
+
+.history-card p {
+    margin-bottom: 0;
+}
+
 @media (max-width: 900px) {
     .main-content {
         grid-template-columns: 1fr;

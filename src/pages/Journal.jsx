@@ -4,6 +4,7 @@ import EntryEditor from "../components/EntryEditor";
 import FeedbackPanel from "../components/FeedbackPanel";
 import { analyzeEntry } from "../services/api";
 import "./Journal.css";
+import StorySelector from "../components/StorySelector";
 
 export default function Journal() {
   const [feedback, setFeedback] = useState([]);
@@ -22,22 +23,30 @@ export default function Journal() {
     }
   }
     return (
-  <div className="journal-page">
-    <Header />
+    <div className="journal-page">
 
-    <div className="main-content">
-      <div className="editor-section">
-        <EntryEditor onAnalyze={handleAnalyze} />
+        <Header />
 
-        {loading && (
-          <p className="loading">Analyzing entry...</p>
-        )}
-      </div>
+        <StorySelector />
 
-      <div className="feedback-section">
-        <FeedbackPanel feedback={feedback} />
-      </div>
+        <div className="main-content">
+
+            <div className="editor-section">
+                <EntryEditor onAnalyze={handleAnalyze} />
+
+                {loading && (
+                    <p className="loading">
+                        Analyzing entry...
+                    </p>
+                )}
+            </div>
+
+            <div className="feedback-section">
+                <FeedbackPanel feedback={feedback} />
+            </div>
+
+        </div>
+
     </div>
-  </div>
 );
 }
