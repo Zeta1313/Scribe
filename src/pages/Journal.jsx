@@ -22,32 +22,22 @@ export default function Journal() {
     }
   }
     return (
-    <div className="journal-page">
+  <div className="journal-page">
+    <Header />
 
-        <Header />
+    <div className="main-content">
+      <div className="editor-section">
+        <EntryEditor onAnalyze={handleAnalyze} />
 
-        <div className="main-content">
+        {loading && (
+          <p className="loading">Analyzing entry...</p>
+        )}
+      </div>
 
-            <div className="editor-section">
-                <div className="editor-container">
-
-                    <EntryEditor onAnalyze={handleAnalyze} />
-
-                    {loading && (
-                        <p className="loading">
-                            Analyzing entry...
-                        </p>
-                    )}
-
-                </div>
-            </div>
-
-            <div className="feedback-section">
-                <FeedbackPanel feedback={feedback} />
-            </div>
-
-        </div>
-
+      <div className="feedback-section">
+        <FeedbackPanel feedback={feedback} />
+      </div>
     </div>
+  </div>
 );
 }
