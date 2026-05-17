@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import EntryEditor from "../components/EntryEditor";
 import FeedbackPanel from "../components/FeedbackPanel";
 import { analyzeEntry } from "../services/api";
+import "./Journal.css";
 
 export default function Journal() {
   const [feedback, setFeedback] = useState([]);
@@ -21,19 +22,32 @@ export default function Journal() {
     }
   }
     return (
-        <div className="journal-page">
-            <Header />
+    <div className="journal-page">
 
-            <EntryEditor onAnalyze={handleAnalyze} />
+        <Header />
 
-            {loading && (
-              <>
-              {/* Show loading message */}
-              <p className="loading">Analyzing entry...</p>
-              </>
-            )}
+        <div className="main-content">
 
-            <FeedbackPanel feedback={feedback} />
+            <div className="editor-section">
+                <div className="editor-container">
+
+                    <EntryEditor onAnalyze={handleAnalyze} />
+
+                    {loading && (
+                        <p className="loading">
+                            Analyzing entry...
+                        </p>
+                    )}
+
+                </div>
+            </div>
+
+            <div className="feedback-section">
+                <FeedbackPanel feedback={feedback} />
+            </div>
+
         </div>
-  );
+
+    </div>
+);
 }

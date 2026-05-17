@@ -1,0 +1,88 @@
+/* Main Page Container */
+.journal-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    color: white;
+}
+
+/* Header Spacing */
+.app-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.subtitle {
+    color: #aaa;
+}
+
+/* Layout for Editor and Feedback to be Side-By-Side*/
+.main-content {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+/* Left Side */
+.editor-section {
+    flex: 2;
+}
+
+/* Right Side */
+.feedback-section {
+    flex: 1;
+}
+
+/* Card Styling */
+.editor-container, .feedback-panel {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #333;
+}
+
+/* Text Area */
+textarea {
+    width: 100%;
+    min-height: 220px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: white;
+    resize: vertical;
+    font-size: 15px;
+}
+
+/* Analyze Button */
+button {
+    margin-top: 15px;
+    padding:10px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4f46e5;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4338ca;
+}
+
+/* Feedback Section Spacing */
+.feddback-panel {
+    margin-top: 20px;
+}
+
+.feedback-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #252525;
+    border-radius: 8px;
+}
+
+/* Loading Message */
+.loading {
+    margin-top: 15px;
+    color: #aaa;
+}
