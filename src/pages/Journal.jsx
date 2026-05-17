@@ -1,17 +1,39 @@
+import { useState } from "react";
+import Header from "../components/Header";
+import EntryEditor from "../components/EntryEditor";
+import FeedbackPanel from "../components/FeedbackPanel";
+import { analyzeEntry } from "../services/api";
+
 export default function Journal() {
+  const [feedback, setFeedback] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const handleAnalyze = async (text) => {
+    if (!text.trim()) return; // Don't analyze empty entries
+    
+    setLoading(true);
+
+    try {
+      const result = await analyzeEntry(text); // Call  API to analyze the entry
+      setFeedback(result); // Update with results from  API
+    } finally {
+      setLoading(false);
+    }
+  }
     return (
-    <div>
-      <h1>Scribe AI</h1>
+        <div className="journal-page">
+            <Header />
 
-      <textarea
-        placeholder="Write your journal entry here..."
-        rows="10"
-        cols="50">
-      </textarea>
+            <EntryEditor onAnalyze={handleAnalyze} />
 
-      <br />
+            {loading && (
+              <>
+              {/* Show loading message */}
+              <p className="loading">Analyzing entry...</p>
+              </>
+            )}
 
-      <button>Save Entry</button>
-    </div>
+            <FeedbackPanel feedback={feedback} />
+        </div>
   );
 }
