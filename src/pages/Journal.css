@@ -219,6 +219,42 @@ button:hover {
     font-size: .95rem;
 }
 
+.story-memory {
+    margin-top: 24px;
+    background: #151515;
+    border: 1px solid #333;
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.story-memory h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.memory-subtitle {
+    color: #a9a9a9;
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.story-memory ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.story-memory li {
+    background: #232323;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
 @media (max-width: 900px) {
     .main-content {
         grid-template-columns: 1fr;
