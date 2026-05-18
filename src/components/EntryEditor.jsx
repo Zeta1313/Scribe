@@ -1,6 +1,6 @@
-import {useState} from "react";
+import { useState } from "react";
 
-export default function EntryEditor({onAnalyze}) {
+export default function EntryEditor({ onAnalyze }) {
     const [text, setText] = useState("");
 
     const handleSubmit = () => {
@@ -8,16 +8,35 @@ export default function EntryEditor({onAnalyze}) {
         onAnalyze(text);
     };
 
+    const wordCount = text.trim()
+        ? text.trim().split(/\s+/).length
+        : 0;
+    
+    const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+
     return (
-        <div className="entry-editor">
+        <div className="editor-card">
+            <div className="editor-header">
+                <h2>Your Entry</h2>
+            </div>
+
+            <div className="writing-stats">
+                <span>{wordCount} words</span>
+                <span>{text.length} characters</span>
+                <span>{readingTime} min read</span>
+            </div>
+
             <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="Write your journal entry here..."
-                rows="10"
-                cols="50"
+                placeholder="Start writing your entry here..."
             />
-            <button onClick={handleSubmit}>Analyze Entry</button>
+
+            <div className="editor-footer">
+                <button onClick={handleSubmit}>
+                    Analyze Entry
+                </button>
+            </div>
         </div>
     );
 }
