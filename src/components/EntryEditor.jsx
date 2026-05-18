@@ -11,12 +11,19 @@ export default function EntryEditor({ onAnalyze }) {
     const wordCount = text.trim()
         ? text.trim().split(/\s+/).length
         : 0;
+    
+    const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
     return (
         <div className="editor-card">
             <div className="editor-header">
                 <h2>Your Entry</h2>
+            </div>
+
+            <div className="writing-stats">
                 <span>{wordCount} words</span>
+                <span>{text.length} characters</span>
+                <span>{readingTime} min read</span>
             </div>
 
             <textarea
@@ -26,10 +33,8 @@ export default function EntryEditor({ onAnalyze }) {
             />
 
             <div className="editor-footer">
-                <span>{text.length} characters</span>
-
                 <button onClick={handleSubmit}>
-                Analyze Entry
+                    Analyze Entry
                 </button>
             </div>
         </div>
