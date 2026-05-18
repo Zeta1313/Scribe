@@ -1,12 +1,7 @@
+import { Routes, Route, Link } from "react-router-dom";
+import Journal from "./pages/Journal";
+import History from "./pages/History";
 import './App.css'
-import Journal from './pages/Journal';
-
-function App() {
-
-  return (
-      <Journal />
-  )
-}
 
 export default function App() {
   return (
@@ -21,5 +16,5 @@ export default function App() {
         <Route path="/history" element={<History />} />
       </Routes>
     </div>
-  )
+  );
 }
