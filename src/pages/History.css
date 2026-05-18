@@ -1,0 +1,33 @@
+.history-page {
+    padding: 40px 20px;
+}
+
+.history-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.history-page h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.history-card {
+    background: #151515;
+    border: 1px solid #333;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+}
+
+.history-card h3 {
+    margin-top: 0;
+    color: #b8c2d6;
+}
+
+.history-card p{
+    line-height: 1.7;
+    margin-bottom: 0;
+}

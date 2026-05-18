@@ -2,10 +2,17 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100vh;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(cirle at top, #1a1f3a, #0e0e16);
+  background: radial-gradient(circle at top, #1a1f3a, #0e0e16 60%);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -22,4 +29,30 @@ button {
 
 button:active {
   transform: scale(0.98);
+}
+
+/* Navigation*/
+.app-nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.app-nav a {
+  color: #cfd6ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.app-nav a:hover {
+  color: white;
+}
+
+button,
+textarea,
+select {
+  font-family: inherit;
 }
