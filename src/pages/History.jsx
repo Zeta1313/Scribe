@@ -1,3 +1,5 @@
+import "./History.css";
+
 export default function History() {
     /* Mock Journal History */
     const entries = [
@@ -13,15 +15,17 @@ export default function History() {
 
     return (
         <div className="history-page">
-            <h2>Past Entries</h2>
+            <div className="history-container">
+                <h2>Past Entries</h2>
 
-            {entries.map((entry, index) => (
-                <div key={index} className="history-card">
-                    <h3>{entry.date}</h3>
+                {entries.map((entry, index) => (
+                    <div key={index} className="history-card">
+                        <h3>{entry.date}</h3>
 
-                    <p>{entry.text}</p>
-                </div>
-            ))}
+                        <p>{entry.text}</p>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
