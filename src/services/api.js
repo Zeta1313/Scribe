@@ -11,7 +11,7 @@ export async function analyzeEntry(text) {
     });
 
     if (!response.ok) {
-        throw new Error("Analysis failed");
+        throw new Error("Failed to analyze entry");
     }
 
     return await response.json();
