@@ -1,35 +1,57 @@
 import FeedbackItem from "./FeedbackItem";
 
-export default function FeedbackPanel({feedback = []}) {
-    const groupedFeedback = feedback.reduce((grouped, item) => {
-        if (!grouped[item.type]) {
-            grouped[item.type] = [];
-        }
-        grouped[item.type].push(item);
-        return grouped;
-    }, {});
+export default function FeedbackPanel({
+    feedback = {
+        grammarFeedback: "",
+        consistencyFeedback: ""
+    }
+}) {
 
-return (
-    <div className="feedback-panel">
-        <h2>Feedback</h2>
+    const hasFeedback =
+        feedback.grammarFeedback ||
+        feedback.consistencyFeedback;
 
-        {feedback.length === 0 ? (
-            <p>No feedback yet. Run analysis to see suggestions.</p>
-        ) : (
-            Object.entries(groupedFeedback).map(([type, items]) => (
-                <div key={type} className="feedback-section">
-                    <h3>{type.toUpperCase()}</h3>
+    return (
+        <div className="feedback-panel">
 
-                    {items.map((item, index) => (
+            <h2>Feedback</h2>
+
+            {!hasFeedback ? (
+
+                <p>
+                    No feedback yet. Run analysis to see suggestions.
+                </p>
+
+            ) : (
+
+                <>
+
+                    <div className="feedback-section">
+
+                        <h3>Grammar & Spelling</h3>
+
                         <FeedbackItem
-                            key={index}
-                            type={item.type}
-                            message={item.message}
+                            type="grammar"
+                            message={feedback.grammarFeedback}
                         />
-                    ))}
-                </div>
-            ))
-        )}
-    </div>
-);
+
+                    </div>
+
+                    <div className="feedback-section">
+
+                        <h3>Consistency Check</h3>
+
+                        <FeedbackItem
+                            type="consistency"
+                            message={feedback.consistencyFeedback}
+                        />
+
+                    </div>
+
+                </>
+
+            )}
+
+        </div>
+    );
 }

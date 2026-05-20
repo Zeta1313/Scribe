@@ -8,22 +8,37 @@ import StorySelector from "../components/StorySelector";
 import StoryMemory from "../components/StoryMemory";
 
 export default function Journal() {
-  const [feedback, setFeedback] = useState([]);
+  const [feedback, setFeedback] = useState({grammarFeedback: "", consistencyFeedback: ""});
   const [loading, setLoading] = useState(false);
+  
+    const handleAnalyze = async (text) => {
+        if (!text.trim()) return;
 
-  const handleAnalyze = async (text) => {
-    if (!text.trim()) return; // Don't analyze empty entries
-    
-    setLoading(true);
+        setLoading(true);
 
-    try {
-      const result = await analyzeEntry(text); // Call  API to analyze the entry
+        try {
 
-      setFeedback(result); // Update with results from  API
-    } finally {
-      setLoading(false);
-    }
-  }
+            const result = await analyzeEntry(text);
+
+            setFeedback({
+                grammarFeedback: result.grammarFeedback,
+                consistencyFeedback: result.consistencyFeedback
+            });
+
+        } catch (error) {
+
+            console.error(error);
+
+            setFeedback({
+                grammarFeedback: "Failed to analyze grammar.",
+                consistencyFeedback: "Failed to check consistency."
+            });
+
+        } finally {
+
+            setLoading(false);
+        }
+    };
     return (
         <div className="journal-page">
 

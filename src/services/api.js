@@ -1,40 +1,18 @@
+const API_URL = "http://localhost:3000/api/analyze";
+
 export async function analyzeEntry(text) {
-    console.log(text); // Placeholder for API call to analyze the journal entry
 
-    // Simulate processing time
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ text })
+    });
 
-    const feedback = [];
-    const cleaned = text.trim();
-
-    // Example rules for mock AI behaviour
-    if (cleaned.toLowerCase().includes("teh")) {
-        feedback.push({
-            type: "grammar",
-            message: "Possible typo: 'teh' should be 'the'.",
-        });
+    if (!response.ok) {
+        throw new Error("Analysis failed");
     }
 
-    if (cleaned.length < 20) {
-        feedback.push({
-            type: "clarity",
-            message: "Sentence could be clearer or more detailed.",
-        });
-    }
-
-    if (feedback.length === 0) {
-        feedback.push({
-            type: "positive",
-            message: "No issues found in this entry.",
-        });
-    }
-
-    if (cleaned.toLowerCase().includes("and and")) {
-        feedback.push({
-            type: "grammar",
-            message: "Repeated words detected ('and and').",
-        });
-    }
-
-    return feedback;
+    return await response.json();
 }
