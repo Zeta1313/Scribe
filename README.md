@@ -18,3 +18,5 @@ Terminal 2:
 cd server
 npm install
 npm run dev
+
+ollama pull phi3
