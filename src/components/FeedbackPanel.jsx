@@ -18,8 +18,8 @@ export default function FeedbackPanel({
 
             {!hasFeedback ? (
 
-                <p>
-                    No feedback yet. Run analysis to see suggestions.
+                <p className="feedback-empty">
+                    Write an entry and click Analyze Entry to receive grammar and consistency feedback.
                 </p>
 
             ) : (

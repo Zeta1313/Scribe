@@ -169,6 +169,12 @@ button:hover {
     color: #f5f5f5;
 }
 
+.feedback-empty {
+    color: #a9a9a9;
+    line-height: 1.6;
+    text-align: center;
+}
+
 .feedback-dot {
     width: 10px;
     height: 10px;
