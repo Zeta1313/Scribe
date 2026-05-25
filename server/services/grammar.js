@@ -23,9 +23,11 @@ Rules:
 - Keep each bullet under 15 words.
 - If there are no issues, return exactly:
 "No grammar issues found."
-- Do not correct character names, fictional locations, invented terms, or fantasy words unless they are clearly inconsistent within the same text.
-- Assume proper nouns may be intentional names.
-- Do not correct invented spellings such as "Majik" if they appear to be intentional worldbuilding terms.
+- Do not correct character names, fictional locations, invented terms, or fantasy words.
+- Assume proper nouns and fantasy terms may be intentional.
+- Do not correct invented spellings such as "Majik" if they appear intentional.
+- Ignore capitalization of character names, locations, fantasy terms, and proper nouns.
+- Do not suggest corrections for names unless they are inconsistent within the same entry.
 
 Text:
 ${text}
