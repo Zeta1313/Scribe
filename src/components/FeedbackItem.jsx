@@ -15,7 +15,16 @@ export default function FeedbackItem({type, message}) {
             </div>
 
             <p className="feedback-message">
-                {message}
+                <ul className="feedback-list">
+                    {message
+                        .split("\n")
+                        .filter((line) => line.trim() !== "")
+                        .map((line, index) => (
+                            <li key={index}>
+                                {line.replace(/^[-•]\s*/, "")}
+                            </li>
+                        ))}
+                </ul>
             </p>
         </div>
     );
