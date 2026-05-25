@@ -25,6 +25,7 @@ Rules:
 "No grammar issues found."
 - Do not correct character names, fictional locations, invented terms, or fantasy words unless they are clearly inconsistent within the same text.
 - Assume proper nouns may be intentional names.
+- Do not correct invented spellings such as "Majik" if they appear to be intentional worldbuilding terms.
 
 Text:
 ${text}

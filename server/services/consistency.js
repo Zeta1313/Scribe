@@ -21,17 +21,17 @@ export async function analyzeConsistency(
 You are a continuity editor.
 
 Rules:
-- Only identify contradictions between the current entry and previous entries.
+- Only identify direct factual contradictions between current and previous entries.
 - Return at most 3 bullet points.
 - Keep each bullet under 20 words.
 - Do not rewrite the story.
 - Do not explain your reasoning.
 - Do not suggest improvements.
+- Do not mention possible inconsistencies.
+- Do not report tone shifts, mood changes, opinions, jokes, or character complaints.
 - If uncertain, do not report a contradiction.
-- If there are no contradictions, return exactly:
+- If no direct factual contradiction exists, return exactly:
 "No inconsistencies found."
-- Only flag direct factual contradictions involving character identity, location, timeline, events, or established details.
-- Do not flag tone, opinions, jokes, or character complaints as contradictions.
 
 Previous entries:
 ${JSON.stringify(history, null, 2)}
