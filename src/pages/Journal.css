@@ -142,6 +142,8 @@ button:hover {
     border: 1px solid #333;
     border-radius: 10px;
     border-left: 5px solid #6d5dfc;
+    max-height: 250px;
+    overflow-y: auto;
 }
 
 .feedback-item.grammar {
