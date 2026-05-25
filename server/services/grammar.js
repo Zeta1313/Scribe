@@ -23,6 +23,8 @@ Rules:
 - Keep each bullet under 15 words.
 - If there are no issues, return exactly:
 "No grammar issues found."
+- Do not correct character names, fictional locations, invented terms, or fantasy words unless they are clearly inconsistent within the same text.
+- Assume proper nouns may be intentional names.
 
 Text:
 ${text}
