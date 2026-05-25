@@ -11,8 +11,18 @@ export async function analyzeGrammar(text) {
             body: JSON.stringify({
                 model: "phi3",
 
+// Previous Prompt:
+// "Return only grammar and spelling corrections in a short, concise list."
                 prompt: `
-Return only grammar and spelling corrections in a short, consise list.
+You are a grammar checker.
+
+Rules:
+- Return at most 3 bullet points.
+- Do not rewrite the text.
+- Do not explain your reasoning.
+- Keep each bullet under 15 words.
+- If there are no issues, return exactly:
+"No grammar issues found."
 
 Text:
 ${text}

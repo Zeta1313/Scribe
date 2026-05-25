@@ -14,8 +14,20 @@ export async function analyzeConsistency(
             body: JSON.stringify({
                 model: "phi3",
 
+// Previous Prompt:
+// "You are a continuity editor."
                 prompt: `
 You are a continuity editor.
+
+Rules:
+- Only identify contradictions between the current entry and previous entries.
+- Return at most 3 bullet points.
+- Keep each bullet under 20 words.
+- Do not rewrite the story.
+- Do not explain your reasoning.
+- Do not suggest improvements.
+- If there are no contradictions, return exactly:
+"No inconsistencies found."
 
 Previous entries:
 ${JSON.stringify(history, null, 2)}
