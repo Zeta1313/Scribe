@@ -8,4 +8,15 @@ Instillation process:
 
 4. Run npm run to start backend
 
-5. OPen second console window and run npm run dev in main directory. You should be up and running after that.
+5. Open second console window and run npm run dev in main directory. You should be up and running after that.
+
+Terminal 1:
+npm install
+npm run dev
+
+Terminal 2:
+cd server
+npm install
+npm run dev
+
+ollama pull phi3
