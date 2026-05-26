@@ -25,14 +25,14 @@ export default function History() {
         <div className="history-page">
             <div className="history-container">
                 <div className="history-header">
-                    <h1>Writing History</h1>
-                    <p>Review saved entries and story progress over time.</p>
+                    <h1>Story Memory</h1>
+                    <p>Review saved characters, locations, conflicts, and story details.</p>
                 </div>
 
                 {entries.length === 0 ? (
                     <div className="empty-history">
-                        <h2>No saved entries yet</h2>
-                        <p>Saved writing entries will appear here.</p>
+                        <h2>No story memory yet</h2>
+                        <p>Saved story details will appear here.</p>
                     </div>
                 ) : (
                     <div className="history-list">
