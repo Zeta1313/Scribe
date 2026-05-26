@@ -65,7 +65,7 @@ app.post("/api/save-memory", async (req, res) => {
 
 app.get("/api/history", async (req, res) => {
     try {
-        const history= await loadHistory();
+        const history = await loadHistory();
         res.json(history);
     } catch (error) {
         console.error(error);

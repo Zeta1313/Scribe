@@ -1,20 +1,25 @@
+import { useEffect, useState } from "react";
+import { getHistory } from "../services/api";
 import "./History.css";
 
 export default function History() {
-    const entries = [
-        {
-            date: "June 8",
-            title: "Morvin Streets",
-            text: "Character entered the city and met a mysterious stranger who offered them a quest.",
-            wordCount: 13
-        },
-        {
-            date: "June 9",
-            title: "Forest Journey",
-            text: "Character accepted the quest and ventured into the nearby forest, encountering various challenges along the way.",
-            wordCount: 15
+    const [entries, setEntries] = useState([]);
+
+    useEffect(() => {
+        async function loadEntries() {
+            try {
+                const history = await getHistory();
+
+                console.log("History data:", history);
+
+                setEntries(Array.isArray(history) ? history : []);
+            } catch (error) {
+                console.error("Failed to load history:", error);
+            }
         }
-    ];
+
+        loadEntries();
+    }, []);
 
     return (
         <div className="history-page">
@@ -25,8 +30,8 @@ export default function History() {
                 </div>
 
                 {entries.length === 0 ? (
-                    <div className="empyty-history">
-                        <h2>No saved entries yet.</h2>
+                    <div className="empty-history">
+                        <h2>No saved entries yet</h2>
                         <p>Saved writing entries will appear here.</p>
                     </div>
                 ) : (
@@ -35,16 +40,18 @@ export default function History() {
                             <div key={index} className="history-card">
                                 <div className="history-card-header">
                                     <div>
-                                        <h2>{entry.title}</h2>
-                                        <span>{entry.date}</span>
+                                        <h2>Entry {index + 1}</h2>
+                                        <span>
+                                            {new Date(entry.timestamp).toLocaleString()}
+                                        </span>
                                     </div>
 
                                     <span className="word-count">
-                                        {entry.wordCount} words
+                                        {entry.text ? entry.text.split(/\s+/).length : 0} words
                                     </span>
                                 </div>
 
-                                <p>{entry.text}</p>
+                                <p>{entry.text || entry.summary || JSON.stringify(entry)}</p>
                             </div>
                         ))}
                     </div>
