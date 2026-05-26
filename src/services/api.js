@@ -16,3 +16,16 @@ export async function analyzeEntry(text) {
 
     return await response.json();
 }
+
+export async function getHistory() {
+
+    const response = await fetch(
+        "http://localhost:3000/api/history"
+    );
+
+    if (!response.ok) {
+        throw new Error("Failed to load history");
+    }
+
+    return await response.json();
+}

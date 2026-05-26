@@ -70,7 +70,7 @@ app.get("/api/history", async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({
-            error: "Failed to load history."
+            error: "Failed to load history"
         })
     }
 })
