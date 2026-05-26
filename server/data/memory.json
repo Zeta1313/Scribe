@@ -1,0 +1,36 @@
+{
+  "story_details": {
+    "location": [
+      "Morvin",
+      "town"
+    ],
+    "atmosphere": [
+      {
+        "description": "high-peaked spires of Morvin casting dark shadows under the moonlight"
+      },
+      {
+        "situation": "empty streets except for a single figure"
+      }
+    ],
+    "characters": {
+      "Desscaras": [
+        "sulking",
+        "stalking through darkness"
+      ],
+      "other_townspeople": [
+        "hiding from the Majik"
+      ]
+    },
+    "conflict": [
+      {
+        "element": "The town's dreariness"
+      },
+      {
+        "emotion": "Desscaras feeling undeserving of walking on ground"
+      }
+    ],
+    "witch_status": [
+      "Greatest witch in the world"
+    ]
+  }
+}

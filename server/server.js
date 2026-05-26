@@ -4,7 +4,7 @@ import dotenv from "dotenv"
 
 import { analyzeGrammar } from "./services/grammar.js"
 import { analyzeConsistency } from "./services/consistency.js"
-import { loadHistory, saveEntry } from "./services/memory.js"
+import { loadHistory, saveEntry, extractMemory } from "./services/memory.js"
 
 dotenv.config()
 
@@ -22,11 +22,6 @@ app.post("/api/analyze", async (req, res) => {
         const grammarFeedback = await analyzeGrammar(text)
         const consistencyFeedback = await analyzeConsistency(text, history)
 
-        await saveEntry({
-            text,
-            timestamp: new Date().toISOString()
-        })
-
         res.json({
             grammarFeedback,
             consistencyFeedback
@@ -41,6 +36,31 @@ app.post("/api/analyze", async (req, res) => {
         error: error.message
     })
 }
+})
+
+app.post("/api/save-memory", async (req, res) => {
+
+    try {
+
+        const { text } = req.body
+
+        const extractedMemory = await extractMemory(text)
+        const history = await loadHistory()
+        await saveEntry(extractedMemory, history)
+
+        res.json({
+            success: true
+        })
+
+    } catch (error) {
+
+    console.error("FULL ERROR:")
+    console.error(error)
+
+        res.status(500).json({
+            error: error.message
+        })
+    }
 })
 
 app.listen(3000, () => {
