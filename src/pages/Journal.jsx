@@ -124,8 +124,6 @@ export default function Journal() {
 
             <Header />
 
-            <StorySelector />
-
             <div className="main-content">
 
                 <div className="editor-section">
