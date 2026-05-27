@@ -1,33 +1,25 @@
 {
   "memory": {
-    "timeline": [
-      {
-        "event_1": "Woman walking for hours",
-        "time": "throughout the day"
-      }
-    ],
     "characters": [
       {
-        "name_1": "Annoyed woman",
-        "description_1": "Visibly annoyed and tired of being outdoors with an elderly person."
+        "id": 1,
+        "name": "John Doe",
+        "profession": "Unremarkable",
+        "relationship_status": "Married"
       },
       {
-        "name_2": "Senile old man/Majik II",
-        "description_2": "Smiling figure who enjoys walking outside, possibly harboring mischief or darker intentions towards the woman. Appears to be well-dressed and carries a rapier."
-      },
-      {
-        "name": "Laughing voice of Majik III",
-        "description": "Another individual involved in this strange encounter who seems amused by their situation, possibly enjoying tormenting others as entertainment."
+        "id": 2,
+        "type": "Stranger",
+        "description": "A person dressed in a long coat of fine black fabric with delicate golden trim. Face completely hidden by high collar and wide hat."
       }
     ],
     "locations": [
+      "Main street"
+    ],
+    "timeline": [
       {
-        "location_1": "Historic building façade/reception area of Majik II's abode",
-        "description_1": "A large historic building with stonework that is part of the residence or estate owned by one of the mysterious figures."
-      },
-      {
-        "location_2": "Street where encounter occurred",
-        "description_2": "Unexpectedly windy, a gust strong enough to fling an individual through the air, leading her into Majik II's building."
+        "time": "Morning",
+        "event": "John Doe savors crisp morning air, then feels a bump on his shoulder which he attributes to the Stranger"
       }
     ]
   }
