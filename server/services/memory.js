@@ -78,8 +78,8 @@ Rules:
 - Add new facts
 - Update changed facts
 - Avoid duplicates
-- Stay within categories
-- Keep things concise
+- Stay within categories. Use a "characters" array, a "locations" array, and a "timeline" array exactly with no deviation
+- Keep things concise, descriptions should not exceed a paragraph
 - Return ONLY valid JSON
 `,
 

@@ -1,36 +1,34 @@
 {
-  "story_details": {
-    "location": [
-      "Morvin",
-      "town"
-    ],
-    "atmosphere": [
+  "memory": {
+    "timeline": [
       {
-        "description": "high-peaked spires of Morvin casting dark shadows under the moonlight"
-      },
-      {
-        "situation": "empty streets except for a single figure"
+        "event_1": "Woman walking for hours",
+        "time": "throughout the day"
       }
     ],
-    "characters": {
-      "Desscaras": [
-        "sulking",
-        "stalking through darkness"
-      ],
-      "other_townspeople": [
-        "hiding from the Majik"
-      ]
-    },
-    "conflict": [
+    "characters": [
       {
-        "element": "The town's dreariness"
+        "name_1": "Annoyed woman",
+        "description_1": "Visibly annoyed and tired of being outdoors with an elderly person."
       },
       {
-        "emotion": "Desscaras feeling undeserving of walking on ground"
+        "name_2": "Senile old man/Majik II",
+        "description_2": "Smiling figure who enjoys walking outside, possibly harboring mischief or darker intentions towards the woman. Appears to be well-dressed and carries a rapier."
+      },
+      {
+        "name": "Laughing voice of Majik III",
+        "description": "Another individual involved in this strange encounter who seems amused by their situation, possibly enjoying tormenting others as entertainment."
       }
     ],
-    "witch_status": [
-      "Greatest witch in the world"
+    "locations": [
+      {
+        "location_1": "Historic building façade/reception area of Majik II's abode",
+        "description_1": "A large historic building with stonework that is part of the residence or estate owned by one of the mysterious figures."
+      },
+      {
+        "location_2": "Street where encounter occurred",
+        "description_2": "Unexpectedly windy, a gust strong enough to fling an individual through the air, leading her into Majik II's building."
+      }
     ]
   }
 }

@@ -8,7 +8,7 @@ export default function App() {
     <div>
       <nav className="app-nav">
         <Link to="/">Journal</Link>
-        <Link to="/history">Story Memory</Link>
+        <Link to="/history">Memory</Link>
       </nav>
 
       <Routes>
