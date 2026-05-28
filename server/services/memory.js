@@ -63,7 +63,12 @@ export async function extractMemory(
                 model: "phi3",
 
                 prompt: `
-You are maintaining a canonical story database.
+You are maintaining a canonical story memory database.
+
+Your task is to UPDATE the existing JSON memory
+using the new story entry.
+
+You must preserve the exact JSON structure.
 
 Current memory JSON:
 ${JSON.stringify(existingMemory, null, 2)}
@@ -71,16 +76,33 @@ ${JSON.stringify(existingMemory, null, 2)}
 New story entry:
 ${text}
 
-Update the memory JSON using the new information.
-
 Rules:
-- Preserve existing valid facts
-- Add new facts
-- Update changed facts
-- Avoid duplicates
-- Stay within categories. Use a "characters" array, a "locations" array, and a "timeline" array exactly with no deviation
-- Keep things concise, descriptions should not exceed a paragraph
+
 - Return ONLY valid JSON
+- Do NOT include explanations
+- Do NOT use markdown
+- Do NOT wrap the response in quotes
+- Do NOT add additional keys
+- Preserve all existing top-level arrays
+- Keep the exact top-level structure
+- Avoid duplicate information
+- Keep descriptions concise
+- Character descriptions should not exceed one paragraph
+- If no new information exists for a category, preserve it unchanged
+- Never remove valid existing information unless directly contradicted
+- Timeline entries should be short strings
+- worldFacts should contain short factual statements
+
+The response MUST EXACTLY follow this structure:
+
+{
+  "characters": [],
+  "locations": [],
+  "timeline": [],
+  "worldFacts": []
+}
+
+Return ONLY the updated JSON object.
 `,
 
                 stream: false
