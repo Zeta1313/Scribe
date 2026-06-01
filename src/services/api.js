@@ -46,3 +46,19 @@ export async function getHistory() {
 
     return await response.json();
 }
+
+export async function getLog() {
+
+    const response = await fetch(
+        "http://localhost:3000/api/log"
+    );
+
+    if (!response.ok) {
+
+        throw new Error(
+            "Failed to load log"
+        );
+    }
+
+    return await response.json();
+}

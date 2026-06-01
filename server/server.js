@@ -44,6 +44,7 @@ app.post("/api/save-memory", async (req, res) => {
 
         const { text } = req.body
 
+        await saveLogEntry(text);
         const extractedMemory = await extractMemory(text)
         const history = await loadHistory()
         await saveEntry(extractedMemory, history)
@@ -74,6 +75,25 @@ app.get("/api/history", async (req, res) => {
         })
     }
 })
+
+app.get("/api/log", async (req, res) => {
+
+    try {
+
+        const log =
+            await loadLog();
+
+        res.json(log);
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+            error: "Failed to load log"
+        });
+    }
+});
 
 app.listen(3000, () => {
     console.log("Server running on port 3000")

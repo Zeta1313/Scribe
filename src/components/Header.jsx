@@ -3,7 +3,7 @@ export default function Header() {
         <header className="app-header">
             <h1>Scribe</h1>
             <p className="subtitle">
-                AI Writing Companion
+                Writing Companion
             </p>
         </header>
     )

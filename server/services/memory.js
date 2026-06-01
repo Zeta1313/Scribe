@@ -12,6 +12,11 @@ const FILE_PATH = path.join(
     "memory.json"
 )
 
+const LOG_PATH = path.join(
+    DATA_DIR,
+    "log.json"
+);
+
 const DEFAULT_MEMORY = {
     characters: [],
     locations: [],
@@ -92,6 +97,7 @@ Rules:
 - Never remove valid existing information unless directly contradicted
 - Timeline entries should be short strings
 - worldFacts should contain short factual statements
+- All array items must be strings.
 
 The response MUST EXACTLY follow this structure:
 
@@ -137,4 +143,53 @@ try {
 
     throw error;
 }
+}
+
+export async function saveLogEntry(
+    text
+) {
+
+    let log = [];
+
+    try {
+
+        const data =
+            await fs.readFile(
+                LOG_PATH,
+                "utf-8"
+            );
+
+        log = JSON.parse(data);
+
+    } catch {}
+
+    log.push({
+        timestamp:
+            new Date().toISOString(),
+
+        text
+    });
+
+    await fs.writeFile(
+        LOG_PATH,
+        JSON.stringify(log, null, 2)
+    );
+}
+
+export async function loadLog() {
+
+    try {
+
+        const data =
+            await fs.readFile(
+                LOG_PATH,
+                "utf-8"
+            );
+
+        return JSON.parse(data);
+
+    } catch {
+
+        return [];
+    }
 }
