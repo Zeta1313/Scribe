@@ -1,17 +1,20 @@
 {
   "characters": [
     "John Doe - Unremarkable, married.",
-    "Stranger - A mysterious person in a long black coat with golden trim, face hidden by collar and hat."
+    "Stranger - A mysterious person in a long black coat with golden trim and hidden face behind collar and hat; Desscaras",
+    "Majik sightings traveller (not named)"
   ],
   "locations": [
-    "Main Street"
+    "Main Street",
+    "Morvin town square",
+    "watchtower"
   ],
   "timeline": [
-    "Morning - John Doe enjoys the crisp morning air.",
-    "Morning - John Doe feels a bump on his shoulder and suspects the Stranger."
+    "Evening - Desscaras walks through the narrow streets of Morvin as evening bells echo.",
+    "Late afternoon/evening (no specific time) - The Stranger arrives in town."
   ],
   "worldFacts": [
-    "The Stranger conceals their identity with clothing.",
-    "A mysterious encounter happens on Main Street."
+    "The glowing symbol is etched into a stone archway and linked to local rumors of portals beneath the city. It appears after Desscaras' arrival.",
+    "Stranger conceals their identity with clothing, according to world facts."
   ]
 }

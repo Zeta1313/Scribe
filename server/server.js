@@ -39,30 +39,28 @@ app.post("/api/analyze", async (req, res) => {
 })
 
 app.post("/api/save-memory", async (req, res) => {
-
     try {
+        const { text } = req.body;
 
-        const { text } = req.body
+        const history = await loadHistory();
+        const extractedMemory = await extractMemory(text, history);
 
+        await saveEntry(extractedMemory);
         await saveLogEntry(text);
-        const extractedMemory = await extractMemory(text)
-        const history = await loadHistory()
-        await saveEntry(extractedMemory, history)
 
         res.json({
             success: true
-        })
+        });
 
     } catch (error) {
-
-    console.error("FULL ERROR:")
-    console.error(error)
+        console.error("FULL ERROR:");
+        console.error(error);
 
         res.status(500).json({
             error: error.message
-        })
+        });
     }
-})
+});
 
 app.get("/api/history", async (req, res) => {
     try {
