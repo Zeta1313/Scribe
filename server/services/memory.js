@@ -170,6 +170,10 @@ export async function saveLogEntry(
         text
     });
 
+    await fs.mkdir(DATA_DIR, {
+        recursive: true
+    });
+    
     await fs.writeFile(
         LOG_PATH,
         JSON.stringify(log, null, 2)

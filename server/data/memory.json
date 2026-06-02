@@ -1,26 +1,17 @@
 {
-  "memory": {
-    "characters": [
-      {
-        "id": 1,
-        "name": "John Doe",
-        "profession": "Unremarkable",
-        "relationship_status": "Married"
-      },
-      {
-        "id": 2,
-        "type": "Stranger",
-        "description": "A person dressed in a long coat of fine black fabric with delicate golden trim. Face completely hidden by high collar and wide hat."
-      }
-    ],
-    "locations": [
-      "Main street"
-    ],
-    "timeline": [
-      {
-        "time": "Morning",
-        "event": "John Doe savors crisp morning air, then feels a bump on his shoulder which he attributes to the Stranger"
-      }
-    ]
-  }
+  "characters": [
+    "John Doe - Unremarkable, married.",
+    "Stranger - A mysterious person in a long black coat with golden trim, face hidden by collar and hat."
+  ],
+  "locations": [
+    "Main Street"
+  ],
+  "timeline": [
+    "Morning - John Doe enjoys the crisp morning air.",
+    "Morning - John Doe feels a bump on his shoulder and suspects the Stranger."
+  ],
+  "worldFacts": [
+    "The Stranger conceals their identity with clothing.",
+    "A mysterious encounter happens on Main Street."
+  ]
 }
