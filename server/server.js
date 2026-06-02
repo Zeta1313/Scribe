@@ -4,7 +4,7 @@ import dotenv from "dotenv"
 
 import { analyzeGrammar } from "./services/grammar.js"
 import { analyzeConsistency } from "./services/consistency.js"
-import { loadHistory, saveEntry, extractMemory } from "./services/memory.js"
+import { loadHistory, saveEntry, extractMemory, loadLog, saveLogEntry } from "./services/memory.js"
 
 dotenv.config()
 
