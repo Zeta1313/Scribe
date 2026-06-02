@@ -1,1 +1,10 @@
-[]
+[
+{
+    "timestamp": "2026-06-08T09:15:00.000Z",
+    "text": "John Doe walked along Main Street and noticed a mysterious stranger dressed in black."
+  },
+  {
+    "timestamp": "2026-06-09T14:30:00.000Z",
+    "text": "The stranger offered John Doe a quest and hinted at secrets hidden beneath the city."
+  }
+]
