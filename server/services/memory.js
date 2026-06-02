@@ -153,21 +153,29 @@ export async function saveLogEntry(
 
     try {
 
-        const data =
-            await fs.readFile(
-                LOG_PATH,
-                "utf-8"
-            );
+    const data =
+        await fs.readFile(
+            LOG_PATH,
+            "utf-8"
+        );
 
-        log = JSON.parse(data);
+    log = JSON.parse(data);
 
-    } catch {}
+    } catch (error) {
+
+    console.error(error);
+
+    }
 
     log.push({
         timestamp:
             new Date().toISOString(),
 
         text
+    });
+
+    await fs.mkdir(DATA_DIR, {
+        recursive: true
     });
 
     await fs.writeFile(

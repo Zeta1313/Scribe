@@ -4,8 +4,6 @@ import EntryEditor from "../components/EntryEditor";
 import FeedbackPanel from "../components/FeedbackPanel";
 import { analyzeEntry, saveMemory } from "../services/api";
 import "./Journal.css";
-import StorySelector from "../components/StorySelector";
-import StoryMemory from "../components/StoryMemory";
 
 export default function Journal() {
   const [feedback, setFeedback] = useState({grammarFeedback: "", consistencyFeedback: ""});
@@ -48,7 +46,7 @@ export default function Journal() {
 
         try {
 
-            const result = await saveMemory(text);
+            await saveMemory(text);
 
             showNotification("Memory saved successfully.");
 
