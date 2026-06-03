@@ -25,15 +25,24 @@ export default function Journal() {
                 grammarFeedback: result.grammarFeedback,
                 consistencyFeedback: result.consistencyFeedback
             });
-
+            showNotification(
+                "Analysis completed successfully."
+            );
         } catch (error) {
 
             console.error(error);
 
             setFeedback({
-                grammarFeedback: "Failed to analyze grammar.",
-                consistencyFeedback: "Failed to check consistency."
+                grammarFeedback:
+                    "Failed to analyze grammar.",
+
+                consistencyFeedback:
+                    "Failed to check consistency."
             });
+
+            showNotification(
+                "Analysis failed."
+            );
 
         } finally {
 
