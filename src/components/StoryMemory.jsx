@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { getHistory } from "../services/api";
+import { useStory } from "../context/StoryContext.jsx";
 
 export default function StoryMemory() {
 
     const [memory, setMemory] = useState(null);
+
+    const { currentStory } = useStory()
 
     useEffect(() => {
 
@@ -12,7 +15,7 @@ export default function StoryMemory() {
             try {
 
                 const data =
-                    await getHistory();
+                    await getHistory(currentStory);
 
                 setMemory(data);
 
@@ -27,7 +30,7 @@ export default function StoryMemory() {
 
         loadMemory();
 
-    }, []);
+    }, [currentStory]);
 
     if (!memory) {
 

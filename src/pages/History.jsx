@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import { getLog } from "../services/api";
 import "./History.css";
+import { useStory } from "../context/StoryContext.jsx";
 
 export default function History() {
 
-    const [entries, setEntries] =
-        useState([]);
+    const [entries, setEntries] = useState([]);
+
+    const { currentStory } = useStory();
 
     useEffect(() => {
         async function loadLog() {
 
             try {
 
-                const data = await getLog();
+                const data = await getLog(currentStory);
 
  console.log(data);
 
@@ -29,7 +31,7 @@ export default function History() {
         
         loadLog();
 
-    }, []);
+    }, [currentStory]);
 
     return (
         <div className="history-page">

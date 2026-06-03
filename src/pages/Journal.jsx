@@ -4,13 +4,15 @@ import EntryEditor from "../components/EntryEditor";
 import FeedbackPanel from "../components/FeedbackPanel";
 import { analyzeEntry, saveMemory } from "../services/api";
 import "./Journal.css";
-import StorySelector from "../components/StorySelector";
 import StoryMemory from "../components/StoryMemory";
+import { useStory } from "../context/StoryContext.jsx";
 
 export default function Journal() {
   const [feedback, setFeedback] = useState({grammarFeedback: "", consistencyFeedback: ""});
-    const [notification, setNotification] = useState("");
+  const [notification, setNotification] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const { currentStory } = useStory();
   
     const handleAnalyze = async (text) => {
         if (!text.trim()) return;
@@ -19,7 +21,7 @@ export default function Journal() {
 
         try {
 
-            const result = await analyzeEntry(text);
+            const result = await analyzeEntry(text, currentStory);
 
             setFeedback({
                 grammarFeedback: result.grammarFeedback,
@@ -57,7 +59,7 @@ export default function Journal() {
 
         try {
 
-            const result = await saveMemory(text);
+            const result = await saveMemory(text, currentStory);
 
             showNotification("Memory saved successfully.");
 
@@ -132,6 +134,11 @@ export default function Journal() {
         )}
 
             <Header />
+
+            <h3>
+                Current Story:
+                {currentStory}
+            </h3>
 
             <div className="main-content">
 

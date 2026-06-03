@@ -1,0 +1,23 @@
+.stories-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.story-create {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.story-list {
+    display: grid;
+    gap: 20px;
+}
+
+.story-card {
+    background: #151515;
+    border: 1px solid #333;
+    border-radius: 14px;
+    padding: 20px;
+}

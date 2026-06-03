@@ -2,20 +2,25 @@
 import fs from "fs/promises"
 import path from "path"
 
-const DATA_DIR = path.join(
-    process.cwd(),
-    "data"
-)
+function getMemoryPath(
+    storyId
+) {
 
-const FILE_PATH = path.join(
-    DATA_DIR,
-    "memory.json"
-)
+    return path.join(
+        getStoryDir(storyId),
+        "memory.json"
+    );
+}
 
-const LOG_PATH = path.join(
-    DATA_DIR,
-    "log.json"
-);
+function getLogPath(
+    storyId
+) {
+
+    return path.join(
+        getStoryDir(storyId),
+        "log.json"
+    );
+}
 
 const DEFAULT_MEMORY = {
     characters: [],
@@ -24,30 +29,45 @@ const DEFAULT_MEMORY = {
     worldFacts: []
 }
 
-export async function loadHistory() {
+export async function loadHistory(storyid) {
+    const filePath = getMemoryPath(storyId);
+
     try {
 
         const data =
-            await fs.readFile(FILE_PATH, "utf-8")
+            await fs.readFile(
+                filePath,
+                "utf-8"
+            );
 
-        return JSON.parse(data)
+        return JSON.parse(data);
 
     } catch {
 
-        return DEFAULT_MEMORY
+        return DEFAULT_MEMORY;
     }
 }
 
-export async function saveEntry(entry) {
+export async function saveEntry(memory, storyId) {
 
-    await fs.mkdir(DATA_DIR, {
-        recursive: true
-    })
+    const storyDir =
+        getStoryDir(storyId);
+
+    await fs.mkdir(
+        storyDir,
+        {
+            recursive: true
+        }
+    );
 
     await fs.writeFile(
-        FILE_PATH,
-        JSON.stringify(entry, null, 2)
-    )
+        getMemoryPath(storyId),
+        JSON.stringify(
+            memory,
+            null,
+            2
+        )
+    );
 }
 
 export async function extractMemory(
@@ -146,9 +166,7 @@ try {
 }
 }
 
-export async function saveLogEntry(
-    text
-) {
+export async function saveLogEntry(text, storyId) {
 
     let log = [];
 
@@ -156,34 +174,47 @@ export async function saveLogEntry(
 
         const data =
             await fs.readFile(
-                LOG_PATH,
+                getLogPath(storyId),
                 "utf-8"
             );
 
-        log = JSON.parse(data);
+        log =
+            JSON.parse(data);
 
     } catch {}
 
     log.push({
         timestamp:
-            new Date().toISOString(),
+            new Date()
+                .toISOString(),
 
         text
     });
 
+    await fs.mkdir(
+        getStoryDir(storyId),
+        {
+            recursive: true
+        }
+    );
+
     await fs.writeFile(
-        LOG_PATH,
-        JSON.stringify(log, null, 2)
+        getLogPath(storyId),
+        JSON.stringify(
+            log,
+            null,
+            2
+        )
     );
 }
 
-export async function loadLog() {
+export async function loadLog(storyId) {
 
     try {
 
         const data =
             await fs.readFile(
-                LOG_PATH,
+                getLogPath(storyId),
                 "utf-8"
             );
 
