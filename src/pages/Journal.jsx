@@ -138,6 +138,8 @@ export default function Journal() {
 
                 <div className="feedback-section">
                     <FeedbackPanel feedback={feedback} />
+
+                    <StoryMemory />
                 </div>
 
             </div>

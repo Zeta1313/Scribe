@@ -80,9 +80,7 @@ app.get("/api/log", async (req, res) => {
 
     try {
 
-        const log =
-            await loadLog();
-        console.log(log);
+        const log = await loadLog();
         res.json(log);
 
     } catch (error) {

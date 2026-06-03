@@ -99,8 +99,8 @@
 .main-content {
     display: grid;
     grid-template-columns: 2.2fr 1fr;
-    gap: 24px;
-    align-items: stretch;
+    gap: 32px;
+    align-items: start;
 }
 
 /* Cards */
@@ -189,7 +189,9 @@ button:hover {
 }
 
 .feedback-section {
-    margin-bottom: 34px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .feedback-section h3 {
@@ -320,11 +322,12 @@ button:hover {
 }
 
 .story-memory {
-    margin-top: 24px;
     background: #151515;
     border: 1px solid #333;
     border-radius: 14px;
     padding: 24px;
+    max-height: 700px;
+    overflow-y: auto;
 }
 
 .story-memory h2 {
@@ -353,6 +356,29 @@ button:hover {
     padding: 12px 14px;
     margin-bottom: 10px;
     line-height: 1.4;
+}
+
+.memory-section {
+    margin-bottom: 24px;
+}
+
+.memory-section:last-child {
+    margin-bottom: 0;
+}
+
+.memory-section h3 {
+    margin: 0 0 12px;
+    color: #b8c2d6;
+}
+
+.memory-section ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.memory-section li {
+    margin-bottom: 8px;
+    line-height: 1.5;
 }
 
 @media (max-width: 900px) {
