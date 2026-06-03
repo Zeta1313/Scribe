@@ -1,23 +1,6 @@
 {
-  "characters": [
-    "Man",
-    "Wife of Man",
-    "Daughter of Man"
-  ],
-  "locations": [
-    "Street near home",
-    "Sidewalk on the opposite side where Ice cream truck passes",
-    "Schoolyard mishap ramble location",
-    "Café for coffee meetup with friend and Stranger's sighting"
-  ],
-  "timeline": [
-    "Man motions to cross street during traffic lull.",
-    "Wife gives Man a scoff about sugar intake from ice cream treat.",
-    "Daughter enjoys frozen dessert while avoiding thoughts of the Stranger.",
-    "Friend and Man share hour together at café before job departure."
-  ],
-  "worldFacts": [
-    "Ollama request succeeded",
-    "Stranger seen passing by window across from man's friend during coffee meetup"
-  ]
+  "characters": [],
+  "locations": [],
+  "timeline": [],
+  "worldFacts": []
 }
