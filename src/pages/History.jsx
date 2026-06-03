@@ -1,41 +1,33 @@
 import { useEffect, useState } from "react";
-import { getHistory } from "../services/api";
+import { getLog } from "../services/api";
 import "./History.css";
 
 export default function History() {
 
-    const [memory, setMemory] =
-        useState("");
+    const [entries, setEntries] =
+        useState([]);
 
     useEffect(() => {
 
-        async function loadMemory() {
+        async function loadLog() {
 
             try {
 
                 const data =
-                    await getHistory();
+                    await getLog();
 
-                setMemory(
-                    typeof data === "string"
-                        ? data
-                        : JSON.stringify(
-                            data,
-                            null,
-                            2
-                        )
-                );
+                setEntries(data);
 
             } catch (error) {
 
                 console.error(
-                    "Failed to load memory:",
+                    "Failed to load log:",
                     error
                 );
             }
         }
 
-        loadMemory();
+        loadLog();
 
     }, []);
 
@@ -46,26 +38,72 @@ export default function History() {
 
                 <div className="history-header">
 
-                    <h1>Story Memory</h1>
+                    <h1>Story Log</h1>
 
                     <p>
-                        Review saved story details,
-                        world information, and
-                        tracked continuity notes.
+                        Review previously saved
+                        writing entries.
                     </p>
 
                 </div>
 
-                <div className="history-memory">
+                {entries.length === 0 ? (
 
-                    <pre className="history-content">
+                    <div className="history-memory">
 
-                        {memory ||
-                            "No story memory yet."}
+                        <p>
+                            No saved entries yet.
+                        </p>
 
-                    </pre>
+                    </div>
 
-                </div>
+                ) : (
+
+                    <div className="history-list">
+
+                        {entries
+                            .slice()
+                            .reverse()
+                            .map((entry, index) => (
+
+                                <div
+                                    key={index}
+                                    className="history-card"
+                                >
+
+                                    <div className="history-card-header">
+
+                                        <h2>
+                                            Entry {
+                                                entries.length - index
+                                            }
+                                        </h2>
+
+                                        <span>
+
+                                            {
+                                                new Date(
+                                                    entry.timestamp
+                                                ).toLocaleString()
+                                            }
+
+                                        </span>
+
+                                    </div>
+
+                                    <pre className="history-content">
+
+                                        {entry.text}
+
+                                    </pre>
+
+                                </div>
+
+                            ))}
+
+                    </div>
+
+                )}
 
             </div>
 

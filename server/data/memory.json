@@ -1,26 +1,23 @@
 {
-  "memory": {
-    "characters": [
-      {
-        "id": 1,
-        "name": "John Doe",
-        "profession": "Unremarkable",
-        "relationship_status": "Married"
-      },
-      {
-        "id": 2,
-        "type": "Stranger",
-        "description": "A person dressed in a long coat of fine black fabric with delicate golden trim. Face completely hidden by high collar and wide hat."
-      }
-    ],
-    "locations": [
-      "Main street"
-    ],
-    "timeline": [
-      {
-        "time": "Morning",
-        "event": "John Doe savors crisp morning air, then feels a bump on his shoulder which he attributes to the Stranger"
-      }
-    ]
-  }
+  "characters": [
+    "Man",
+    "Wife of Man",
+    "Daughter of Man"
+  ],
+  "locations": [
+    "Street near home",
+    "Sidewalk on the opposite side where Ice cream truck passes",
+    "Schoolyard mishap ramble location",
+    "Café for coffee meetup with friend and Stranger's sighting"
+  ],
+  "timeline": [
+    "Man motions to cross street during traffic lull.",
+    "Wife gives Man a scoff about sugar intake from ice cream treat.",
+    "Daughter enjoys frozen dessert while avoiding thoughts of the Stranger.",
+    "Friend and Man share hour together at café before job departure."
+  ],
+  "worldFacts": [
+    "Ollama request succeeded",
+    "Stranger seen passing by window across from man's friend during coffee meetup"
+  ]
 }

@@ -45,9 +45,9 @@ app.post("/api/save-memory", async (req, res) => {
         const { text } = req.body
 
         await saveLogEntry(text);
-        const extractedMemory = await extractMemory(text)
-        const history = await loadHistory()
-        await saveEntry(extractedMemory, history)
+        const history = await loadHistory();
+        const extractedMemory = await extractMemory(text, history);
+        await saveEntry(extractedMemory);
 
         res.json({
             success: true
