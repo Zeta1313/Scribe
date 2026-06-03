@@ -2,14 +2,14 @@ const API_URL_1 = "http://localhost:3000/api/analyze";
 const API_URL_2 = "http://localhost:3000/api/save-memory";
 const API_URL_3 = "http://localhost:3000/api/log";
 
-export async function analyzeEntry(text, storyid) {
+export async function analyzeEntry(text, storyId) {
 
     const response = await fetch(API_URL_1, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ text, storyid })
+        body: JSON.stringify({ text, storyId })
     });
 
     if (!response.ok) {
@@ -19,13 +19,13 @@ export async function analyzeEntry(text, storyid) {
     return await response.json();
 }
 
-export async function saveMemory(text, storyid) {
+export async function saveMemory(text, storyId) {
     const response = await fetch(API_URL_2, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ text, storyid })
+        body: JSON.stringify({ text, storyId })
     });
 
     if (!response.ok) {
@@ -35,10 +35,10 @@ export async function saveMemory(text, storyid) {
     return await response.json();
 }
 
-export async function getHistory(storyid) {
+export async function getHistory(storyId) {
 
     const response = await fetch(
-        "http://localhost:3000/api/history?storyId=${storyId}`"
+        `http://localhost:3000/api/history?storyId=${storyId}`
     );
 
     if (!response.ok) {
@@ -48,10 +48,10 @@ export async function getHistory(storyid) {
     return await response.json();
 }
 
-export async function getLog(storyid) {
+export async function getLog(storyId) {
 
     const response = await fetch(
-        "http://localhost:3000/api/log?storyId=${storyId}`"
+        `http://localhost:3000/api/log?storyId=${storyId}`
     );
 
     if (!response.ok) {

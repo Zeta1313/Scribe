@@ -2,6 +2,23 @@
 import fs from "fs/promises"
 import path from "path"
 
+const DATA_DIR =
+    path.join(
+        process.cwd(),
+        "data"
+    );
+
+function getStoryDir(
+    storyId = "default"
+) {
+
+    return path.join(
+        DATA_DIR,
+        "stories",
+        storyId
+    );
+}
+
 function getMemoryPath(
     storyId
 ) {
@@ -29,7 +46,7 @@ const DEFAULT_MEMORY = {
     worldFacts: []
 }
 
-export async function loadHistory(storyid) {
+export async function loadHistory(storyId) {
     const filePath = getMemoryPath(storyId);
 
     try {
