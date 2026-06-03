@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useStory } from "../context/StoryContext.jsx";
+import "./Stories.css";
 
 export default function Stories() {
 
@@ -100,10 +101,6 @@ const [newTitle, setNewTitle] = useState("");
                             <h2>
                                 {story.title}
                             </h2>
-
-                            <p>
-                                {story.id}
-                            </p>
 
                             {story.id ===
                                 currentStory && (
