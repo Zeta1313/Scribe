@@ -82,7 +82,7 @@ app.get("/api/log", async (req, res) => {
 
         const log =
             await loadLog();
-
+        console.log(log);
         res.json(log);
 
     } catch (error) {

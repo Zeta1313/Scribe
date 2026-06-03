@@ -8,13 +8,13 @@ export default function History() {
         useState([]);
 
     useEffect(() => {
-
         async function loadLog() {
 
             try {
 
-                const data =
-                    await getLog();
+                const data = await getLog();
+
+ console.log(data);
 
                 setEntries(data);
 
@@ -26,7 +26,7 @@ export default function History() {
                 );
             }
         }
-
+        
         loadLog();
 
     }, []);

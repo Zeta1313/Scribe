@@ -28,6 +28,17 @@
     gap: 20px;
 }
 
+.history-card {
+    background: #151515;
+    border: 1px solid #333;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+    transition: transform 0.2s ease;
+
+    overflow: hidden;
+}
+
 .history-card,
 .empty-history {
     background: #151515;
@@ -84,6 +95,17 @@
     border-radius: 999px;
     padding: 6px 10px;
     font-size: 0.9rem;
+}
+
+.history-content {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    overflow-x: auto;
+    line-height: 1.7;
+    color: #d6d6d6;
+    margin: 0;
 }
 
 @media (max-width: 768px) {
